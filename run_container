@@ -1,0 +1,6 @@
+#/bin/bash
+docker stop mts-back-end
+docker rm mts-back-end
+
+docker run -it -d --restart=always --name mts-back-end -v /home/webmaster/mts-back-end/:/home/webmaster/mts-back-end/ \
+					   -w /home/webmaster/mts-back-end/ -p 3000:3000 node:14.16.1 node bin/www
